@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    color: white
+  }
+
+  header {
+    background-size: cover;
+    padding: 10px
+  }
+
+  main {
+    margin: 50px
+  }
+
+  .card {
+    margin: 15px
+  }

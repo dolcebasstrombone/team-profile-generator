@@ -23,4 +23,9 @@
 * WHEN I decide to finish building my team
 * THEN I exit the application, and the HTML is generated
 
-![Mock Up](./assets/images/mock-up.png)
+## GitHub Repo
+[Repository](https://github.com/dolcebasstrombone/team-profile-generator)
+
+## Tutorial
+
+![Video](./assets/images/tutorial-gif.gif)
