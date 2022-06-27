@@ -14,7 +14,7 @@ const generatePage = function (employeeArray) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${manager.id}</li>
         <li class="list-group-item">Email: <a href="${manager.email}">${manager.email}</a></li>
-        <li class="list-group-item">Office number: ${manager.office}</li>
+        <li class="list-group-item">Office number: ${manager.officeNumber}</li>
       </ul>
     </div>
       `);
