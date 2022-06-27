@@ -27,5 +27,6 @@
 [Repository](https://github.com/dolcebasstrombone/team-profile-generator)
 
 ## Tutorial
+[Video Link](https://user-images.githubusercontent.com/102071390/176022608-ca6e7c42-239c-469a-9926-cc94bd83f4a3.mp4)
 
-![Video](./assets/images/tutorial-gif.gif)
+![GIF](./assets/images/tutorial-gif.gif)
