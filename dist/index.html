@@ -1,5 +1,4 @@
-const pageTemplate = function (generatedCards) {
-  return `
+
     <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +21,31 @@ const pageTemplate = function (generatedCards) {
     </header>
 
     <main class="d-flex flex-wrap justify-content-center align-items">
-    ${generatedCards.join("")}
+    
+      <div class="card bg-secondary bg-opacity-50" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">j</h5>
+        <h6 class="card-subtitle mb-2">Manager</h6>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: j</li>
+        <li class="list-group-item">Email: <a href="j">j</a></li>
+        <li class="list-group-item">Office number: undefined</li>
+      </ul>
+    </div>
+      
+    <div class="card bg-secondary bg-opacity-50" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">gggg</h5>
+      <h6 class="card-subtitle mb-2">Engineer</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: g</li>
+      <li class="list-group-item">Email: <a href="g">g</a></li>
+      <li class="list-group-item">GitHub: <a href="https://github.com/g" target="blank">g</a></li>
+    </ul>
+  </div>
+    
     </main>
 
     <script
@@ -32,7 +55,4 @@ const pageTemplate = function (generatedCards) {
     ></script>
   </body>
 </html>
-    `;
-};
-
-module.exports = pageTemplate;
+    

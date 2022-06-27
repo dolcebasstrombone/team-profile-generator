@@ -1,6 +1,4 @@
-const pageTemplate = function (generatedCards) {
-  return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,7 +20,17 @@ const pageTemplate = function (generatedCards) {
     </header>
 
     <main class="d-flex flex-wrap justify-content-center align-items">
-    ${generatedCards.join("")}
+      <div class="card bg-secondary bg-opacity-50" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">${manager.name}</h5>
+          <h6 class="card-subtitle mb-2">${manager.getRole()}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${manager.id}</li>
+          <li class="list-group-item">Email: ${manager.email}</li>
+          <li class="list-group-item">GitHub: <a href="https://github.com/dolcebasstrombone" target="blank">${manager.office}</a></li>
+        </ul>
+      </div>
     </main>
 
     <script
@@ -32,7 +40,3 @@ const pageTemplate = function (generatedCards) {
     ></script>
   </body>
 </html>
-    `;
-};
-
-module.exports = pageTemplate;

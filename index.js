@@ -3,6 +3,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generatePage= require("./utils/generate-page");
 
 const employeeArray = [];
 
@@ -71,8 +72,12 @@ const promptEngineer = function () {
       {
         type: "list",
         name: "another",
-        message: "Would you like to add another team member?",
-        choices: ["Yes", "No"],
+        message: "What team member would you like to add next?",
+        choices: [
+          "Engineer",
+          "Intern",
+          "I don't need to add any more team members.",
+        ],
       },
     ])
     .then((data) => {
@@ -83,7 +88,7 @@ const promptEngineer = function () {
         data.gitHub
       );
       employeeArray.push(engineer);
-      return data.another;
+      promptAnother(data.another);
     });
 };
 
@@ -152,14 +157,18 @@ const promptIntern = function () {
       {
         type: "list",
         name: "another",
-        message: "Would you like to add another team member?",
-        choices: ["Yes", "No"],
+        message: "What team member would you like to add next?",
+        choices: [
+          "Engineer",
+          "Intern",
+          "I don't need to add any more team members.",
+        ],
       },
     ])
     .then((data) => {
       const intern = new Intern(data.name, data.id, data.email, data.school);
       employeeArray.push(intern);
-      return data.another;
+      promptAnother(data.another);
     });
 };
 
@@ -228,8 +237,12 @@ const promptManager = function () {
       {
         type: "list",
         name: "another",
-        message: "Would you like to add another team member?",
-        choices: ["Yes", "No"],
+        message: "What team member would you like to add next?",
+        choices: [
+          "Engineer",
+          "Intern",
+          "I don't need to add any more team members.",
+        ],
       },
     ])
     .then((data) => {
@@ -240,41 +253,17 @@ const promptManager = function () {
 };
 
 const promptAnother = function (choice) {
-  if (choice === "Yes") {
-    return inquirer
-      .prompt([
-        {
-          type: "list",
-          name: "type",
-          message: "What role would you like to add?",
-          choices: ["Engineer", "Intern"],
-        },
-      ])
-      .then((data) => {
-        if (data.type === "Engineer") {
-          return promptEngineer();
-        }
-        if (data.type === "Intern") {
-          return promptIntern();
-        }
-      });
+  if (choice === "Engineer") {
+    promptEngineer();
   }
-  if (choice === "No") {
-    return choice;
+  if (choice === "Intern") {
+    promptIntern();
+  }
+  if (choice === "I don't need to add any more team members.") {
+    generatePage(employeeArray);
   }
 };
 
-promptManager()
-  .then((choice) => {
-    return promptAnother(choice);
-  })
-  .then((thing) => {
-    console.log(thing);
-  });
-
-//.then use employeeArray to generate a manager card in page-template
-//if user wants to add another employee, find the role and call the right prompt function
-
-//get all the info via inquirer
-//inquirer in classes? or in index? josh says in index
-//fs.writeFile
+promptManager().then((choice) => {
+  return promptAnother(choice);
+});
